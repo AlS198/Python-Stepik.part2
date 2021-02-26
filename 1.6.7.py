@@ -7,11 +7,11 @@ for number_of_classes in range(int(input())):   # вводится коллич�
     else:
         if order[0] in tree_of_classes.keys():  # если такой ключ уже есть в словаре, то добавляем значения
             for i in order[1:]:                 # не работает т.к. воспринимает срез как строку (посимвольно)
-                tree_of_classes[order[0]] += i
+                tree_of_classes[order[0]] += [i]
         else:                                   # если ключа нет, то создаем и после добавляем значения
             tree_of_classes[order[0]] = []
             for i in order[1:]:                 # не работает т.к. воспринимает срез как строку (посимвольно) !!!! 
-                tree_of_classes[order[0]] += i
+                tree_of_classes[order[0]] += [i]
 print(tree_of_classes)
 for number_of_request in range(int(input())):
     inheritance_request = input().split()
