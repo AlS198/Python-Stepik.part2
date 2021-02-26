@@ -1,8 +1,8 @@
-tree_of_classes = {}    #"дети" : "родители"
+tree_of_classes = {}                            #"дети" : "родители"
 for number_of_classes in range(int(input())):   # вводится колличество запросов
     order = input().replace(":", " ").split()   # вводится строка с отношениями Дети : Родители
     if len(order) == 1:
-        order.append('null')    # если нет потомков, то добавляем NULL
+        order.append('null')                    # если нет потомков, то добавляем NULL
         tree_of_classes[order[0]] = order[1]    # тут все хорошо
     else:
         if order[0] in tree_of_classes.keys():  # если такой ключ уже есть в словаре, то добавляем значения
