@@ -5,9 +5,9 @@ for number_of_request in range(int(input())):   # вводится коллич�
         # add <namespace> <var> – добавить в пространство <namespace> переменную <var>
         namespace, var = order[1], order[2]
         if namespace in scope.keys():
-            scope[namespace] += var
+            scope[namespace] += [var]
         else:
-            scope[namespace] = var
+            scope[namespace] = [var]
 
     if order[0] == 'create':
         # create <namespace> <parent> –  создать новое пространство имен
