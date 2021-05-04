@@ -9,23 +9,16 @@ for number_of_request in range(int(input())):   # вводится коллич�
         else:
             scope[namespace] = [var]
 
+    variables = {'global': []} # ключ - namespace_parent : значение - множество переменных и имена пространства_children
+number_of_requests = int(input())
+for number in range(number_of_requests):
+    order = input().split()
     if order[0] == 'create':
-        # create <namespace> <parent> –  создать новое пространство имен
-        # с именем <namespace> внутри пространства <parent>
-        namespace, parent = order[1], order[2]
-        if parent in scope.keys():
-            scope[parent] += {namespace: []}
-        else:
-            scope[parent] += {namespace: []}
-
+        if order[2] in variables.keys():
+            variables[order[2]].append(order[1])
+            variables[order[1]] = []
+    if order[0] == 'add':
+        variables[order[1]].append(order[2])
     if order[0] == 'get':
-        # get <namespace> <var> – получить имя пространства, из которого будет взята переменная <var>
-        # при запросе из пространства <namespace>, или None, если такого пространства не существует
-        namespace, var = order[1], order[2]
-        if namespace in scope.keys() and var in scope[namespace]:
-            print(namespace)
-        if namespace in scope.keys() and var not in scope[namespace]:
-            print(scope[namespace])
-        if namespace not in scope.keys():
-            print('None')
-print(scope)
+        print('другой')
+print(variables)
